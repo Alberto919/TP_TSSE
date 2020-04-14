@@ -85,6 +85,24 @@ void test_IndividualLedOff(void)
 
 
 
+void test_MultipleLedOnAndOff(){
+
+    Leds_On(2);
+
+    Leds_On(5);
+
+    Leds_Off(2);
+
+    UnityAssertEqualNumber((UNITY_INT)((0x0)), (UNITY_INT)((ledsVirtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
 
 
 void test_AllLedOn(){
@@ -95,7 +113,7 @@ void test_AllLedOn(){
 
    ((void *)0)
 
-   ), (UNITY_UINT)(55), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(62), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -111,7 +129,7 @@ void test_AllLedOff(){
 
    ((void *)0)
 
-   ), (UNITY_UINT)(61), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(68), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -125,7 +143,7 @@ void test_IsLedOn(){
 
     Leds_On(led);
 
-    if ((ledsVirtuales)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(68)));};
+    if ((ledsVirtuales)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(75)));};
 
 }
 
@@ -139,6 +157,6 @@ void test_IsLedOff(){
 
     Leds_Off(led);
 
-    if ((!ledsVirtuales)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(75)));};
+    if ((ledsVirtuales)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(82)));};
 
 }

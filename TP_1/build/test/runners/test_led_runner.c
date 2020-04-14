@@ -13,6 +13,7 @@ extern void tearDown(void);
 extern void test_ledsOffAfterCreate(void);
 extern void test_IndividualLedOn(void);
 extern void test_IndividualLedOff(void);
+extern void test_MultipleLedOnAndOff();
 extern void test_AllLedOn();
 extern void test_AllLedOff();
 extern void test_IsLedOn();
@@ -86,10 +87,11 @@ int main(void)
   run_test(test_ledsOffAfterCreate, "test_ledsOffAfterCreate", 27);
   run_test(test_IndividualLedOn, "test_IndividualLedOn", 35);
   run_test(test_IndividualLedOff, "test_IndividualLedOff", 43);
-  run_test(test_AllLedOn, "test_AllLedOn", 53);
-  run_test(test_AllLedOff, "test_AllLedOff", 59);
-  run_test(test_IsLedOn, "test_IsLedOn", 65);
-  run_test(test_IsLedOff, "test_IsLedOff", 72);
+  run_test(test_MultipleLedOnAndOff, "test_MultipleLedOnAndOff", 52);
+  run_test(test_AllLedOn, "test_AllLedOn", 60);
+  run_test(test_AllLedOff, "test_AllLedOff", 66);
+  run_test(test_IsLedOn, "test_IsLedOn", 72);
+  run_test(test_IsLedOff, "test_IsLedOff", 79);
 
   return UnityEnd();
 }
