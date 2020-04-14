@@ -157,6 +157,6 @@ void test_IsLedOff(){
 
     Leds_Off(led);
 
-    if ((ledsVirtuales)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(82)));};
+    if ((!ledsVirtuales)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(82)));};
 
 }

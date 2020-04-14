@@ -1,0 +1,42 @@
+---
+:source:
+  :path: test
+  :file: test_protocol.c
+:successes:
+- :test: test_protocol_iluminacionON
+  :line: 28
+  :message: ''
+  :unity_test_time: 0
+- :test: test_protocol_riegoON
+  :line: 35
+  :message: ''
+  :unity_test_time: 0
+- :test: test_protocol_Command
+  :line: 47
+  :message: ''
+  :unity_test_time: 0
+- :test: test_protocol_getTemperatura
+  :line: 56
+  :message: ''
+  :unity_test_time: 0
+- :test: test_protocol_getHumedad
+  :line: 65
+  :message: ''
+  :unity_test_time: 0
+- :test: test_protocol_iluminacionOFF
+  :line: 73
+  :message: ''
+  :unity_test_time: 0
+- :test: test_protocol_riegoOFF
+  :line: 80
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 7
+  :passed: 7
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.0013794020051136613
