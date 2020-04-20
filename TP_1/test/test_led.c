@@ -9,8 +9,6 @@
     • Se pueden prender todos los LEDs de una vez.
     • Se pueden apagar todos los LEDs de una vez.
     • Se puede consultar el estado de un LED.
-    • Revisar limites de los parametros.
-    • Revisar parámetros fuera de los limites.
 */
 
 static uint16_t ledsVirtuales = 0xFFFF;
@@ -50,10 +48,11 @@ void test_IndividualLedOff(void)
 
 // Se pueden prender y apagar múltiples LED’s
 void test_MultipleLedOnAndOff(){
+    const uint16_t  led = 5;
     Leds_On(2);
-    Leds_On(5);
+    Leds_On(led);
     Leds_Off(2);
-    TEST_ASSERT_EQUAL(0x0 , ledsVirtuales);
+    TEST_ASSERT_EQUAL(1<<(led-1), ledsVirtuales);
 }
 
 // Se pueden prender todos los LEDs de una vez
@@ -69,15 +68,10 @@ void test_AllLedOff(){
 }
 
 // Se puede consultar el estado de un LED.
-void test_IsLedOn(){
-    const uint16_t  led = 3;
-    Leds_On(led);
-    TEST_ASSERT_TRUE(ledsVirtuales);
-}
-
-// Se puede consultar el estado de un LED.
 void test_IsLedOff(){
-    const uint16_t  led = 3;
+    const uint16_t  led = 4;
     Leds_Off(led);
-    TEST_ASSERT_TRUE(!ledsVirtuales);
+    TEST_ASSERT_TRUE(!Leds_IsOn(led));
+    Leds_On(led);
+    TEST_ASSERT_TRUE(Leds_IsOn(led));
 }

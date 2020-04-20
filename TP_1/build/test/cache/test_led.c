@@ -35,7 +35,7 @@ void test_ledsOffAfterCreate(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(31), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(29), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -55,7 +55,7 @@ void test_IndividualLedOn(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(39), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(37), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -77,7 +77,7 @@ void test_IndividualLedOff(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(46), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -93,11 +93,11 @@ void test_MultipleLedOnAndOff(){
 
     Leds_Off(2);
 
-    UnityAssertEqualNumber((UNITY_INT)((0x0)), (UNITY_INT)((ledsVirtuales)), (
+    UnityAssertEqualNumber((UNITY_INT)((1<<(5-1))), (UNITY_INT)((ledsVirtuales)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(56), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(54), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -113,7 +113,7 @@ void test_AllLedOn(){
 
    ((void *)0)
 
-   ), (UNITY_UINT)(62), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(60), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -129,21 +129,7 @@ void test_AllLedOff(){
 
    ((void *)0)
 
-   ), (UNITY_UINT)(68), UNITY_DISPLAY_STYLE_INT);
-
-}
-
-
-
-
-
-void test_IsLedOn(){
-
-    const uint16_t led = 3;
-
-    Leds_On(led);
-
-    if ((ledsVirtuales)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(75)));};
+   ), (UNITY_UINT)(66), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -153,10 +139,14 @@ void test_IsLedOn(){
 
 void test_IsLedOff(){
 
-    const uint16_t led = 3;
+    const uint16_t led = 4;
 
     Leds_Off(led);
 
-    if ((!ledsVirtuales)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(82)));};
+    if ((!Leds_IsOn(led))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(73)));};
+
+    Leds_On(led);
+
+    if ((Leds_IsOn(led))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(75)));};
 
 }
