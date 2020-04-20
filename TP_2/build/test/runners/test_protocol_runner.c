@@ -83,13 +83,13 @@ static void run_test(UnityTestFunction func, const char* name, int line_num)
 int main(void)
 {
   UnityBegin("test_protocol.c");
-  run_test(test_protocol_iluminacionON, "test_protocol_iluminacionON", 28);
-  run_test(test_protocol_riegoON, "test_protocol_riegoON", 35);
-  run_test(test_protocol_Command, "test_protocol_Command", 47);
-  run_test(test_protocol_getTemperatura, "test_protocol_getTemperatura", 56);
-  run_test(test_protocol_getHumedad, "test_protocol_getHumedad", 65);
-  run_test(test_protocol_iluminacionOFF, "test_protocol_iluminacionOFF", 73);
-  run_test(test_protocol_riegoOFF, "test_protocol_riegoOFF", 80);
+  run_test(test_protocol_iluminacionON, "test_protocol_iluminacionON", 72);
+  run_test(test_protocol_riegoON, "test_protocol_riegoON", 81);
+  run_test(test_protocol_Command, "test_protocol_Command", 95);
+  run_test(test_protocol_getTemperatura, "test_protocol_getTemperatura", 106);
+  run_test(test_protocol_getHumedad, "test_protocol_getHumedad", 117);
+  run_test(test_protocol_iluminacionOFF, "test_protocol_iluminacionOFF", 127);
+  run_test(test_protocol_riegoOFF, "test_protocol_riegoOFF", 136);
 
   return UnityEnd();
 }

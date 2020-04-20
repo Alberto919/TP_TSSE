@@ -4,31 +4,31 @@
   :file: test_protocol.c
 :successes:
 - :test: test_protocol_iluminacionON
-  :line: 28
+  :line: 72
   :message: ''
   :unity_test_time: 0
 - :test: test_protocol_riegoON
-  :line: 35
+  :line: 81
   :message: ''
   :unity_test_time: 0
 - :test: test_protocol_Command
-  :line: 47
+  :line: 95
   :message: ''
   :unity_test_time: 0
 - :test: test_protocol_getTemperatura
-  :line: 56
+  :line: 106
   :message: ''
   :unity_test_time: 0
 - :test: test_protocol_getHumedad
-  :line: 65
+  :line: 117
   :message: ''
   :unity_test_time: 0
 - :test: test_protocol_iluminacionOFF
-  :line: 73
+  :line: 127
   :message: ''
   :unity_test_time: 0
 - :test: test_protocol_riegoOFF
-  :line: 80
+  :line: 136
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -39,4 +39,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0013794020051136613
+:time: 0.0011878820005222224

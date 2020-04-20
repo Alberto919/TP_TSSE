@@ -1,5 +1,4 @@
 #include "unity.h"
-#include "protocol.h"
 #include "FSMprotocol.h"
 
 /*
@@ -12,12 +11,57 @@
     • Se puede detener el riego por goteo en el invernadero.
 */
 
+/* Resultados ficticios para poder hacer el test */
+enum Test {	
+	TEST_ON 			= 1,
+	TEST_OFF 			= 0,
+	TEST_TEMP 			= 25,
+	TEST_HUM 			= 30,	
+} valores;
+
+//Contienen el resultado
+//de la accion de llama al protocolo
 static int resultado;
-static int status;
+static int statusCheck;
+
+//Funciones ejecuta una operacion
+void procesar(int cmd){
+	switch (cmd)
+	{
+	case ILUMINACION_OFF:
+		resultado = TEST_OFF;
+		break;
+	case ILUMINACION_ON:
+		resultado = TEST_ON;
+		break;
+	case RIEGO_OFF:
+		resultado = TEST_OFF;
+		break;
+	case RIEGO_ON:
+		resultado = TEST_ON;
+		break;
+	case GET_TEMP:
+		resultado = TEST_TEMP;
+		break;
+	case GET_HUM:
+		resultado = TEST_HUM;
+		break;
+	}
+}
+
+//Funciones obtiene el resultado
+//de un operación
+void status(int cmd){
+    statusCheck = cmd;
+}
+
 
 void setUp(void)
 {
-    create(&resultado, &status);
+    init();
+    //Funciones callback auxiliares
+    procesar_callback(&procesar);
+    responder_callback(&status);  
 }
 
 void tearDown(void)
@@ -53,7 +97,7 @@ void test_protocol_Command(void){
     int buf[BUFFER_LENGHT] = {START_CMD,RIEGO_ON, START_CMD};
     //enviamos el comando
 	sendCommand(buf);   
-    TEST_ASSERT_EQUAL(FAIL, status);
+    TEST_ASSERT_EQUAL(FAIL, statusCheck);
 }
 
 //  Se puede consultar el valor de la temperatura 
